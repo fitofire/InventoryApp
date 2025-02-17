@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using InventoryApp.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 
 namespace InventoryApp.Data
 {
@@ -7,5 +9,7 @@ namespace InventoryApp.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) 
         { 
         }
+
+        public DbSet<ComputerEntry> ComputerEntries { get; set; }
     }
 }
