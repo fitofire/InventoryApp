@@ -1,6 +1,6 @@
 // Adding the necessary using directives, including Models namespace
 using InventoryApp.Data;
-using InventoryApp.Models;              // will show red error until we add a model.cs file into Models directory
+using InventoryApp.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,8 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Add Entity Framework Core enabling Dependency Injection for DbContext objects
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ApplicationDbContext")));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
+    builder.Configuration.GetConnectionString("ApplicationDbContext")));
 
 var app = builder.Build();
 
