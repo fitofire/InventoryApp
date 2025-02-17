@@ -29,7 +29,7 @@ namespace InventoryApp.Data
                         Location = "Tech Room",
                         CurrentUser = "IT",
                         Status = "Decommissioned",
-                        LastUpdated = new DateTime(2024-10-26)
+                        LastUpdated = new DateTime(2024,10,26)
                     },
                     new ComputerEntry
                     {
@@ -38,8 +38,8 @@ namespace InventoryApp.Data
                         SerialName = "DFSFPV2",
                         Manufacturer = "Dell",
                         Model = "5490",
-                        PurchaseDate = new DateTime(2020, 2, 13),
-                        WarrantyExp = new DateTime(2024, 9, 13),
+                        PurchaseDate = new DateTime(2020,2,13),
+                        WarrantyExp = new DateTime(2024,9,13),
                         Location = "Tech Room",
                         CurrentUser = "IT",
                         Status = "Decommissioned",
