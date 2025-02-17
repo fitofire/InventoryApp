@@ -29,3 +29,20 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+.table {
+    font-size: 11px; /* Reduce text size */
+    width: 100%;
+    table-layout: auto; /* Allow table to adjust */
+    word-wrap: break-word;
+}
+
+    .table th, .table td {
+        padding: 8px;
+        text-align: left;
+        white-space: nowrap; /* Prevent text from wrapping */
+    }
+
+.table-responsive {
+    overflow-x: auto; /* Enable scrolling for small screens */
+}
