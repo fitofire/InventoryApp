@@ -18,5 +18,10 @@ namespace InventoryApp.Controllers
             List<ComputerEntry> computerEntries = _db.ComputerEntries.ToList();
             return View(computerEntries);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }

@@ -4,8 +4,14 @@
     ViewData["Title"] = "Computers Page";
 }
 
-<h1>Computer Entries Index</h1>
-<p>Our new Views/ComputerEntries/Index.cshtml page</p>
+<div class="container pb-1">
+    <div class="row pt-4">
+        <div class="col-6">
+            <a class="btn btn-primary" asp-controller="ComputerEntries" asp-action="Create">Add New Computer</a>
+        </div>
+    </div>
+</div>
+
 
 <div class="table-responsive">
         <table class="table table-striped table-hover">
