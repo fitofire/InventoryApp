@@ -7,16 +7,20 @@ namespace InventoryApp.Models
         [Key]
         public int Id { get; set; }
 
-        [Required, StringLength(50)]
+        [Required(ErrorMessage = "Please enter an Asset Tag")]
+        [StringLength(15, MinimumLength = 5, ErrorMessage = "Asset Tag must be between 5 and 15 characters.")]
         public string AssetTag { get; set; } = string.Empty;
 
-        [Required,StringLength(50)]
+        [Required(ErrorMessage = "Please enter an Serial Number")]
+        [StringLength(15, MinimumLength = 5, ErrorMessage = "Serial must be between 5 and 15 characters.")]
         public string SerialName { get; set; } = string.Empty;
 
-        [Required, StringLength(50)]
+        [Required(ErrorMessage = "Please enter a Manufacturer")]
+        [StringLength(50)]
         public string Manufacturer { get; set; } = string.Empty;
 
-        [Required, StringLength(50)]
+        [Required(ErrorMessage = "Please enter a Model")]
+        [StringLength(50)]
         public string Model { get; set; } = string.Empty;
 
         [DataType(DataType.Date)]
@@ -31,7 +35,7 @@ namespace InventoryApp.Models
         [StringLength(100)]
         public string? CurrentUser { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter a status")]
         [StringLength(50)]
         public string Status { get; set; } = "Active";
 

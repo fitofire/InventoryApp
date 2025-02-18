@@ -23,5 +23,13 @@ namespace InventoryApp.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Create(ComputerEntry obj)
+        {
+            _db.ComputerEntries.Add(obj);  // Adds the new computer to the database
+            _db.SaveChanges();    // saves the changes to the database
+            return RedirectToAction("Index");  
+        }
     }
 }

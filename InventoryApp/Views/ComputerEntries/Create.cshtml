@@ -8,22 +8,27 @@
                     <h2>Add New Computer</h2>
                 </div>
                 <div class="card-body">
-                    <form asp-action="" method="post">
+                    <form asp-action="Create" method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
                         <div class="form-group mb-3">
                             <label asp-for="AssetTag" class="form-label">Asset Tag</label>
                             <input asp-for="AssetTag" class="form-control" placeholder="Enter an asset tag" />
+                            <span asp-validation-for="AssetTag" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
                             <label asp-for="SerialName" class="form-label">Serial Name</label>
                             <input asp-for="SerialName" class="form-control" placeholder="Enter the serial number" />
+                            <span asp-validation-for="SerialName" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
                             <label asp-for="Manufacturer" class="form-label">Manufacturer</label>
                             <input asp-for="Manufacturer" class="form-control" placeholder="Enter manufacturer name" />
+                            <span asp-validation-for="Manufacturer" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
                             <label asp-for="Model" class="form-label">Model</label>
                             <input asp-for="Model" class="form-control" placeholder="Enter the model" />
+                            <span asp-validation-for="Model" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
                             <label asp-for="PurchaseDate" class="form-label">Purchase Date</label>
@@ -44,6 +49,7 @@
                         <div class="form-group mb-3">
                             <label asp-for="Status" class="form-label">Status</label>
                             <input asp-for="Status" class="form-control" placeholder="Enter a status, is it checked in, checkout out, decommissioned" />
+                            <span asp-validation-for="Status" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
                             <label asp-for="LastUpdated" class="form-label">Last Updated</label>
@@ -59,3 +65,7 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
