@@ -42,5 +42,9 @@ namespace InventoryApp.Models
         [DataType(DataType.DateTime)]
         public DateTime LastUpdated { get; set; } = DateTime.UtcNow;
 
+        // Add a read-only property named Slug
+        public string Slug => (SerialName?.Length > 8 ? SerialName.Substring(0, 8) : SerialName)?.Replace(' ', '-').ToLower()
+            + "-" + (Manufacturer?.Length > 5 ? Manufacturer.Substring(0, 5) : Manufacturer)?.Replace(' ', '-').ToLower();
+
     }
 }
