@@ -25,18 +25,36 @@ namespace InventoryApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(ComputerEntry obj)
+        public IActionResult Create(ComputerEntry computerEntry)
         {
-            if (obj != null && obj.SerialName.Length < 5)
+            if (computerEntry != null && computerEntry.SerialName.Length < 5)
             {
                 ModelState.AddModelError("SerialName", "Serial Name must be at least 5 characters long.");
             }
             if (ModelState.IsValid)
             {
-                _db.ComputerEntries.Add(obj);
+                _db.ComputerEntries.Add(computerEntry);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(obj);
+            return View(computerEntry);
         }
+
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            
+            ComputerEntry? computerEntry = _db.ComputerEntries.Find(id);
+
+            if (computerEntry == null)
+            {
+                return NotFound();
+            }
+            return View(computerEntry);
+        }
+    }
 }
