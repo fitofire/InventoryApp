@@ -27,9 +27,16 @@ namespace InventoryApp.Controllers
         [HttpPost]
         public IActionResult Create(ComputerEntry obj)
         {
-            _db.ComputerEntries.Add(obj);  // Adds the new computer to the database
-            _db.SaveChanges();    // saves the changes to the database
-            return RedirectToAction("Index");  
+            if (obj != null && obj.SerialName.Length < 5)
+            {
+                ModelState.AddModelError("SerialName", "Serial Name must be at least 5 characters long.");
+            }
+            if (ModelState.IsValid)
+            {
+                _db.ComputerEntries.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
         }
-    }
 }
